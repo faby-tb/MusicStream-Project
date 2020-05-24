@@ -13,6 +13,7 @@ class App extends React.Component {
 		<div className="bg-dark text-white">
 			<div className="d-flex justify-content-between">
 				<NavIzquierdo></NavIzquierdo>
+				<div id="navSpace" className="col-1"></div>
 				<Content></Content>
 			</div>
 			<div className="d-flex bg-secondary fixed-bottom">
