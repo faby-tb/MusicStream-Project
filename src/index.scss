@@ -9,7 +9,7 @@ body {
 .slider{
 	position: relative;
 	width: 100%;
-	height: 40vh;
+	height: 60vh;
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
@@ -23,33 +23,9 @@ body {
 	transition: .5s;
 	overflow: hidden;
 
-	
-}
-
-%btn-styles{
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 8%;
-	height: 80%;
-	background: none;
-	border: none;
-	outline: none;
-	transition: .5s;
-
-	&:hover{
-		background: rgba(52, 58, 64, 0.664);
+	.card{
+		height: 100%;
 	}
-}
-
-#goLeft{
-	left: 0;
-	@extend %btn-styles;
-}
-
-#goRight{
-	right: 0;
-	@extend %btn-styles;
 }
 
 .header-container{
@@ -68,26 +44,60 @@ body {
 	overflow: hidden;
 }
 
-%btn-styles-header{
+%btn-styles{
 	position: absolute;
-	width: 5%;
-	height: 100%;
 	background: none;
 	border: none;
 	outline: none;
 	transition: .5s;
+	color: white;
+}
 
+%btn-styles-slider{
+	top: 50%;
+	transform: translateY(-50%);
+	width: 5%;
+	height: 80%;
+}
+
+%btn-styles-header{
+	width: 5%;
+	height: 100%;
 	&:hover{
 		background: rgba(52, 58, 64, 0.664);
 	}
 }
 
+#goLeft{
+	left: 0;
+	@extend %btn-styles;
+	@extend %btn-styles-slider;
+}
+
+#goRight{
+	right: 0;
+	@extend %btn-styles;
+	@extend %btn-styles-slider;
+}
+
 #goLeftHeader{
 	left: 0;
+	@extend %btn-styles;
 	@extend %btn-styles-header;
 }
 
 #goRightHeader{
 	right: 0;
+	@extend %btn-styles;
 	@extend %btn-styles-header;
+}
+
+.slider-arrow{
+	background: rgba(255, 255, 255, 0.342);
+	padding: 1rem;
+	border-radius: 50px;
+	transition: 0.5s;
+	&:hover{
+		background: rgba(255, 255, 255, 0.514);
+	}
 }

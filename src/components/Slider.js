@@ -1,12 +1,11 @@
 import React,{useState} from 'react';
 import img from '../img/placeholder_600x400.svg';
-import ImgComp from './ImgComp';
 
 const Slider = () => {
 
         //test array DELETE
 		let slideArr = [
-			<div className="card mb-3 bg-dark mx-4">
+			<div className="card mb-3 bg-success mx-4">
 				<img src={img} className="card-img-top" alt="..."/>
 				<div className="card-body position-relative">
 					<h5 className="card-title">Card title</h5>
@@ -14,13 +13,38 @@ const Slider = () => {
 					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
 				</div>
 			</div>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>
+			<div className="card mb-3 bg-success mx-4">
+				<img src={img} className="card-img-top" alt="..."/>
+				<div className="card-body position-relative">
+					<h5 className="card-title">Card title</h5>
+					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+				</div>
+			</div>,
+			<div className="card mb-3 bg-success mx-4">
+				<img src={img} className="card-img-top" alt="..."/>
+				<div className="card-body position-relative">
+					<h5 className="card-title">Card title</h5>
+					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+				</div>
+			</div>,
+			<div className="card mb-3 bg-success mx-4">
+				<img src={img} className="card-img-top" alt="..."/>
+				<div className="card-body position-relative">
+					<h5 className="card-title">Card title</h5>
+					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+				</div>
+			</div>,
+			<div className="card mb-3 bg-success mx-4">
+				<img src={img} className="card-img-top" alt="..."/>
+				<div className="card-body position-relative">
+					<h5 className="card-title">Card title</h5>
+					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+				</div>
+			</div>
 
 		];
 
@@ -46,10 +70,14 @@ const Slider = () => {
 					);
 				})}
 				<button id="goLeft"  onClick={goLeft}>
-					<i className="fas fa-chevron-left"></i>
+					<div className="slider-arrow">
+						<i className="fas fa-chevron-left"></i>
+					</div>
 				</button>
 				<button id="goRight" onClick={goRight}>
-					<i  className="fas fa-chevron-right"></i>
+					<div className="slider-arrow">
+						<i className="fas fa-chevron-right"></i>
+					</div>
 				</button>
 			</div>
         );
