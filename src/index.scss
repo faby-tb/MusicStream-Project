@@ -7,7 +7,6 @@ body {
 }
 
 .slider{
-	border: 1 solid red;
 	position: relative;
 	width: 100%;
 	height: 40vh;
@@ -18,23 +17,29 @@ body {
 }
 
 .slide{
-	border: 1px solid blue;
 	min-width: 30%;
 	margin: 0 1% 0 1%;
 	height: 80%;
 	transition: .5s;
 	overflow: hidden;
+
+	
 }
 
 %btn-styles{
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	width: 5%;
+	width: 8%;
 	height: 80%;
 	background: none;
 	border: none;
 	outline: none;
+	transition: .5s;
+
+	&:hover{
+		background: rgba(52, 58, 64, 0.664);
+	}
 }
 
 #goLeft{
@@ -45,4 +50,44 @@ body {
 #goRight{
 	right: 0;
 	@extend %btn-styles;
+}
+
+.header-container{
+	position: relative;
+	width: 100%;
+	height: 60vh;
+	box-sizing: border-box;
+	display: flex;
+	overflow: hidden;
+}
+
+.header{
+	min-width: 100%;
+	height: 100%;
+	transition: .5s;
+	overflow: hidden;
+}
+
+%btn-styles-header{
+	position: absolute;
+	width: 5%;
+	height: 100%;
+	background: none;
+	border: none;
+	outline: none;
+	transition: .5s;
+
+	&:hover{
+		background: rgba(52, 58, 64, 0.664);
+	}
+}
+
+#goLeftHeader{
+	left: 0;
+	@extend %btn-styles-header;
+}
+
+#goRightHeader{
+	right: 0;
+	@extend %btn-styles-header;
 }

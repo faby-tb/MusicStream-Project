@@ -1,11 +1,12 @@
 import React from 'react';
 import Slider from './Slider';
+import Header from './Header';
 import img from '../img/placeholder_600x400.svg';
 
 const Content = () => {
         return(
-            <div className="col-11 mt-3 mb-5 pb-4">
-                <h1>Hi</h1>
+            <div className="col-11 mt-3 mb-5 pb-5">
+                <Header></Header>
 
 
                 <div className="jumbotron jumbotron-fluid bg-danger">
@@ -40,11 +41,13 @@ const Content = () => {
                                 <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                             </div>
                     </div>
+                </div>
 
                 <Slider></Slider>
-                    <p>Doggo ipsum smol heckin good boys the neighborhood pupper tungg, mlem blop. Big ol fat boi stop it fren boofers you are doing me a frighten adorable doggo, much ruin diet very good spot heckin good boys. tungg heckin shooberino. Borkf snoot I am bekom fat pupperino, floofs h*ck blep such treat, borkf borking doggo. Mlem pats borkdrive lotsa pats, bork heckin. Smol borking doggo with a long snoot for pats doggorino blop tungg, mlem you are doing me the shock borkdrive bork, very taste wow shibe. Shoober very hand that feed shibe such treat extremely cuuuuuute long doggo, smol borking doggo with a long snoot for pats tungg mlem heckin, h*ck heckin angery woofer shibe. Dat tungg tho porgo blop the neighborhood pupper big ol pupper, long woofer thicc. Noodle horse yapper thicc floofs big ol pupper tungg extremely cuuuuuute pats, big ol such treat very hand that feed shibe heckin good boys and girls floofs heckin angery woofer. Heckin floofs very taste wow, smol. Borking doggo pupper stop it fren, borkdrive.
 
-I am bekom fat yapper puggo wow such tempt you are doin me a concern, yapper woofer heckin. Aqua doggo puggorino wow very biscit heckin you are doing me a frighten most angery pupper I have ever seen, snoot boofers long water shoob heckin angery woofer. Long doggo shoob stop it fren bork pats long bois thicc, most angery pupper I have ever seen smol borking doggo with a long snoot for pats much ruin diet corgo you are doing me a frighten. Maximum borkdrive big ol pupper boofers many pats, thicc waggy wags.</p>
+                <h3 className="text-center">Example Video</h3>
+                <div class="container embed-responsive embed-responsive-16by9">
+                    <iframe title="ExampleVideo" class="embed-responsive-item" src="https://www.youtube.com/embed/CW5oGRx9CLM"></iframe>
                 </div>
             </div>
         );

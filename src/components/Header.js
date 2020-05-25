@@ -6,14 +6,6 @@ const Slider = () => {
 
         //test array DELETE
 		let slideArr = [
-			<div className="card mb-3 bg-dark mx-4">
-				<img src={img} className="card-img-top" alt="..."/>
-				<div className="card-body position-relative">
-					<h5 className="card-title">Card title</h5>
-					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-				</div>
-			</div>,
 			<ImgComp src={img}/>,
 			<ImgComp src={img}/>,
 			<ImgComp src={img}/>,
@@ -21,7 +13,6 @@ const Slider = () => {
 			<ImgComp src={img}/>,
 			<ImgComp src={img}/>,
 			<ImgComp src={img}/>
-
 		];
 
 		const [x,setX] = useState(0);	
@@ -29,26 +20,26 @@ const Slider = () => {
 		let _style = { transform: 'translateX(' + x + '%)'};
 
 		const goLeft=()=>{
-			(x === 0) ? setX(-101*(slideArr.length-3)) : setX(x+101);
+			(x === 0) ? setX(-100*(slideArr.length-3)) : setX(x+100);
 		};
 
 		const goRight=()=>{
-			(x === -101*(slideArr.length-3)) ? setX(0) : setX(x-101);
+			(x === -100*(slideArr.length-3)) ? setX(0) : setX(x-100);
 		};
 
         return(
-			<div className="slider">{
+			<div className="header-container mb-3">{
 				slideArr.map((item,index)=>{
 					return(
-						<div key={index} className="slide" style={_style}>
+						<div key={index} className="header" style={_style}>
 							{item}
 						</div>
 					);
 				})}
-				<button id="goLeft"  onClick={goLeft}>
+				<button id="goLeftHeader"  onClick={goLeft}>
 					<i className="fas fa-chevron-left"></i>
 				</button>
-				<button id="goRight" onClick={goRight}>
+				<button id="goRightHeader" onClick={goRight}>
 					<i  className="fas fa-chevron-right"></i>
 				</button>
 			</div>
