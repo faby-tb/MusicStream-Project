@@ -92,6 +92,10 @@ body {
 	@extend %btn-styles-header;
 }
 
+#navSpace{
+	z-index: -1;
+}
+
 .slider-arrow{
 	background: rgba(255, 255, 255, 0.342);
 	padding: 1rem;
@@ -100,4 +104,17 @@ body {
 	&:hover{
 		background: rgba(255, 255, 255, 0.514);
 	}
+}
+
+.logo{
+	background: rgba(255, 255, 255, 0.363);
+	color: white;
+}
+
+.card-title{
+	color: white;
+}
+
+.not-found{
+	min-height: 100vh;
 }
