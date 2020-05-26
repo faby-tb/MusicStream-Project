@@ -1,9 +1,17 @@
 import React from 'react';
+
 import Slider from './Slider';
 import Header from './Header';
+
 import TheWeeknd from '../img/the-weeknd.jpg';
 
 const Content = () => {
+
+        function closeAlert($alert){
+            let element = document.getElementById($alert);
+            element.remove("show");
+        }
+
         return(
             <div className="col-11 mt-3 mb-5 pb-5">
                 <Header></Header>
@@ -15,9 +23,20 @@ const Content = () => {
                     </div>  
                 </div>
 
+                
+
+                <div className="alert alert-info text-center show" id="notificacion" role="alert">
+                    El nuevo éxito de The Weeknd ya disponible!
+                    <button type="button" className="close stretched-link" aria-label="Close" data-dismiss="alert" onClick={() => closeAlert("notificacion")}>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
                 <div className="row container-fluid justify-content-center">
                     <div className="card mb-3 bg-dark col-3 mx-4 pt-2 rounded-lg">
-                    <a href="/artista" className="text-decoration-none"><img src={TheWeeknd} className="card-img-top rounded-0 clickable" alt="TheWeeknd"/></a>
+                    <a href="/artista" className="text-decoration-none">
+                        <img src={TheWeeknd} className="card-img-top rounded-0 clickable" alt="TheWeeknd"/>
+                    </a>
                             <div className="card-body position-relative">
                                 <a href="/artista" className="text-decoration-none stretched-link"><h4 className="card-title text-center clickable">The Weeknd</h4></a>
                                 <p className="card-text">Con algunos de sus éxitos como Blinding Lights, Call Out My Name, Starboy, The Hills, Can't Feel My Face y I Feel It Coming.​</p>

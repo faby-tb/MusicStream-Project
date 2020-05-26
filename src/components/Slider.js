@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+
 import img from '../img/placeholder_600x400.svg';
 
 const Slider = () => {
@@ -14,7 +15,7 @@ const Slider = () => {
 				</div>
 			</div>,
 			<div className="card mb-3 bg-dark mx-4">
-				<img src={img} className="card-img-top" alt="..."/>
+					<img src={img} className="card-img-top" alt="..."/>
 				<div className="card-body position-relative">
 					<h5 className="card-title">Card title</h5>
 					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
