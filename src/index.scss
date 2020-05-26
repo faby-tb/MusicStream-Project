@@ -6,6 +6,10 @@ body {
 	font-family: 'Josefin Sans', sans-serif;
 }
 
+.nav{
+	min-height: 100vh;
+}
+
 .slider{
 	position: relative;
 	width: 100%;
@@ -117,4 +121,8 @@ body {
 
 .not-found{
 	min-height: 100vh;
+}
+
+.clickable{
+	cursor: pointer;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavDerecho = () => {
         return(
-            <div className="container text-white col-10 my-2"> <h1>AudioPlayer</h1></div>
+            <div className="container bg-dark text-white col-12 py-2 text-center"> <h1>AudioPlayer</h1></div>
         );
 };
 

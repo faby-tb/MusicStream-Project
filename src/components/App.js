@@ -15,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
 		<Router>
-			<div className="bg-dark text-white">
+			<div className="bg-secondary text-white">
 				<div className="d-flex justify-content-between">
 					<NavIzquierdo></NavIzquierdo>
 					<div id="navSpace" className="col-1"></div>
