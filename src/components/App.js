@@ -35,7 +35,7 @@ class App extends React.Component {
 
 		return (
 			<Router>
-				<div className="text-white">
+				<div className="text-white main">
 					<div className="d-flex justify-content-between">
 						<NavIzquierdo></NavIzquierdo>
 						<div id="navSpace" className="col-sm-1"></div>

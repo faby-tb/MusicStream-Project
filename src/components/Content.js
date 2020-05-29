@@ -25,14 +25,13 @@ const Content = (props) => {
 
                 <div className="row container-fluid justify-content-center">
                         {artistas.length > 0 ? (artistas.map((artista) => {
-                            // console.log(artista);
                             return (
                             <div key={artista.id} className="card mb-3 col-3 mx-4 pt-2 rounded-lg">
                                 <Link to={{pathname:'/artista/'+artista.id}} >
                                     <img src={TheWeeknd} className="card-img-top rounded-0 clickable" alt="TheWeeknd"/>
                                 </Link>
                                 <div className="card-body position-relative">
-                                    <Link to={"/artista/"+artista.id} className="text-decoration-none"><h4 className="card-title text-center clickable text-capitalize titulos">{artista.nombre}</h4></Link>
+                                    <Link to={"/artista/"+artista.id} className="text-decoration-none stretched-link"><h4 className="card-title text-center clickable text-capitalize titulos">{artista.nombre}</h4></Link>
                                     <p className="card-text">{artista.descripcion}</p>
                                 </div>
                             </div>)

@@ -3,7 +3,43 @@ import React from 'react';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
 
-const NavIzquierdo = () => {
+class NavIzquierdo extends React.Component {
+
+    componentDidMount =()=> {
+        let darkMode = localStorage.getItem('darkMode'); 
+
+        const darkModeToggle = document.querySelector('#dark-mode-toggle');
+
+        const enableDarkMode = () => {
+            document.querySelector(".main").dataset.mode= 'darkmode';
+            document.querySelector('#dark-mode-toggle').innerHTML= '<p><i class="fas fa-moon"></i> Darkmode</p>';
+            localStorage.setItem('darkMode', 'enabled');
+        }
+
+        const disableDarkMode = () => {
+            document.querySelector(".main").dataset.mode='';
+            document.querySelector('#dark-mode-toggle').innerHTML= '<p><i class="fas fa-sun"></i> Lightmode</p>';
+            localStorage.setItem('darkMode', null);
+        }
+        
+        if (darkMode === 'enabled') {
+            enableDarkMode();
+        }else{
+            disableDarkMode();
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+        darkMode = localStorage.getItem('darkMode'); 
+        
+        if (darkMode !== 'enabled') {
+            enableDarkMode();
+        } else {  
+            disableDarkMode(); 
+        }
+        });
+    }
+
+render = () => {
         return(
         <ul className="nav position-fixed flex-column text-white col-sm-1 p-0">
             <Link to="./../" className="text-decoration-none">
@@ -20,8 +56,14 @@ const NavIzquierdo = () => {
                 <a className="nav-link text-decoration-none disabled" href="."><i className="fas fa-list-ul"></i> Playlist</a>
                 <a className="nav-link text-decoration-none disabled" href="."><i className="fas fa-wave-square"></i> Radio</a>
             </li>
+            <li className="list-group-item p-0">
+                <button id="dark-mode-toggle" className="btn nav-link dark-mode-toggle ">
+                    <p><i class="fas fa-moon"></i> Darkmode</p>
+                </button>
+            </li>
         </ul>
         );
+    }
 };
 
 export default NavIzquierdo;

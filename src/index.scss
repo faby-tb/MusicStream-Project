@@ -11,23 +11,61 @@
 *		$text -> Usar en color:
 *	
 */
-$background-00: #0B132B;
-$background-01dp: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #0B132B;
-$background-02dp: linear-gradient(0deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07)), #0B132B;
-$background-03dp: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #0B132B;
+:root{
+	--background-00: #0B132B;
 
-$background-10: #1C2541;
+	--background-01dp: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #0B132B;
 
-$background-20: #3A506B;
+	--background-10: #1C2541;
 
-$highlight: #1691B2;
-$highlight-50: #E1F5FE;
-$highlight-100: #B5E8FB;
-$highlight-500: #2AB4E1;
-$highlight-900: #005B6C;
+	--background-20: #3A506B;
 
-$text-disabled: #3A506B;
+	--highlight: #1691B2;
+	--highlight-50: #E1F5FE;
+	--highlight-100: #B5E8FB;
+	--highlight-500: #2AB4E1;
+	--highlight-900: #005B6C;
 
+	--text: white;
+	--text-disabled: #3A506B;
+}
+
+/*
+*	Detector de si el .main tiene el data-set de modo oscuro
+*
+*/
+.main[data-mode='darkmode'] {
+	--background-00: #F0F3F5;
+	--background-10: #F0F3F5;
+	--background-20: #F0F3F5;
+
+	--background-01dp: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #F0F3F5;
+
+	--highlight: #B80E66;
+	--highlight-50: #FDE5EF;
+	--highlight-100: #FABDD7;
+	--highlight-500: #F61474;
+	--highlight-900: #92095D;
+
+	--text: black;
+	--text-disabled: rgb(107, 58, 83);
+}
+
+$background-00: var(--background-00);
+$background-01dp: var(--background-01dp);
+
+$background-10: var(--background-10);
+
+$background-20: var(--background-20);
+
+$highlight: var(--highlight);
+$highlight-50: var(--highlight-50);
+$highlight-100: var(--highlight-100);
+$highlight-500: var(--highlight-500);
+$highlight-900: var(--highlight-900);
+
+$text: var(--text);
+$text-disabled: var(--text-disabled);
 /*
 *	Sombras para cada profundidad
 *		Usar en box-shadow:
@@ -75,7 +113,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Open Sans', sans-serif;
-	background: $background-00;
+	background: var(--background-00);
 }
 
 .titulos{
@@ -91,7 +129,7 @@ body {
 */
 
 .content{
-	background: $background-00;
+	background: var(--background-00);
 }
 
 /*
@@ -124,7 +162,7 @@ body {
 
 .logo{
 	background: $background-20;
-	color: $white;
+	color: $text;
 }
 
 /*
@@ -132,6 +170,11 @@ body {
 */
 .card{
 	background: $background-20;
+	.card-body{
+		.card-text{
+			color: $text;
+		}
+	}
 }
 
 /*
@@ -197,7 +240,7 @@ body {
 	border: none;
 	outline: none;
 	transition: .5s;
-	color: white;
+	color: $text;
 }
 
 %btn-styles-slider{
@@ -245,7 +288,7 @@ body {
 
 
 .card-title{
-	color: white;
+	color: $text;
 }
 
 .clickable{
@@ -272,24 +315,27 @@ body {
 */
 .artistCover{
 	// background: linear-gradient(to right, #183cddb6, #175977b7), url("./img/the-weeknd-blinding-lights.jpg");
-    color: #fff;
+    color: $text;
     background-size: cover;
 	background-position: center;
 	min-height: 50vh;
 	.gradient{
 		z-index: 2;
-		background: linear-gradient(to top, $background-00, rgba(255, 255, 255, 0));
+		background: linear-gradient(to top, var(--background-00), rgba(255, 255, 255, 0));
+	}
+	.titulos,.genero{
+		color: white;
 	}
 }
 
 .artistContentHeader{
-	background: $background-00;
-	color: #fff;
+	background: var(--background-00);
+	color: $text;
 	min-height: 10vh;
 }
 .artistContent{
-	background: $background-00;
-	color: #fff;
+	background: var(--background-00);
+	color: $text;
 	min-height: 50vh;
 }
 
