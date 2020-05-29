@@ -4,7 +4,7 @@ const Slider = (props) => {
 	
 	let slideArr = props.props;
 	
-	console.log(slideArr);
+	// console.log(slideArr);
 		const [x,setX] = useState(0);	
 		
 		let _style = { transform: 'translateX(' + x + '%)'};

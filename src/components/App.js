@@ -23,7 +23,7 @@ import img2 from '../img/ariana-grande-2018-4k-5k-9f.jpg';
 
 import mini0 from '../img/the-weeknd.jpg';
 import mini1 from '../img/wallpaperflare.com_wallpaper.jpg';
-import mini2 from '../img/2018-ariana-grande-6w.jpg';
+import mini2 from '../img/ariana-grande-2018-4k-5k-9f.jpg';
 
 import song0 from '../music/The Weeknd - Blinding Lights.mp3';
 import song1 from '../music/The Weeknd - Heartless.mp3';

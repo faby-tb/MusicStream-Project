@@ -1,15 +1,15 @@
 import React from 'react'
 
 import { useParams } from 'react-router-dom';
-
+// eslint-disable-next-line
+import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
 
 const Artista = (props) => {
     function changeSong(e){
-        console.log(e.nombre);
+        // console.log(e.nombre);
         document.getElementById('player').src = props.component.songs[0].song;
         document.getElementById('player').src = e.song;
         document.getElementById('audioPlayerSongTitle').innerText = e.nombre;
-        
     }
     
     let { id } = useParams();
@@ -17,7 +17,7 @@ const Artista = (props) => {
     let artist = props.component.artistas[id];
     let songs = props.component.songs;
     
-    console.log(artist);
+    // console.log(artist);
     
     let styleImg = {
         'background': 'url("'+artist.img+'")',
@@ -27,6 +27,9 @@ const Artista = (props) => {
 
     return(
         <div className="artist col-11 mb-5 pb-5 px-0">
+            <Link to="./../" className="artistBack">
+                <i className="fas fa-arrow-circle-left"></i>
+            </Link>
             <div className="artistCover d-flex flex-column align-items-end justify-content-end" style={styleImg}>
                     <h1 className="text-capitalize display-1 px-5 titulos">{artist.nombre}</h1>
                     <p className="px-5 genero">{artist.genero}</p>
@@ -36,9 +39,9 @@ const Artista = (props) => {
                 <h4 className="pt-4 titulos">Canciones</h4>
             </div>
             <div>
-                {songs.length > 0 ? (songs.map((song) => {
+                {songs.length > 0 ? (songs.map((song,index) => {
                     return(
-                        <button className={song.artistId === artist.id ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId === artist.id ? song : "")}>{song.artistId === artist.id ? song.nombre : ""}</button>
+                        <button key={index} className={song.artistId === artist.id ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId === artist.id ? song : "")}>{song.artistId === artist.id ? song.nombre : ""}</button>
                         
                     )
                 }) ) : (

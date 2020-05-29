@@ -416,9 +416,13 @@ body {
 		color: $highlight-500;
 	}
 }
-// #nextButton{
-	
-// }
+
+.artistBack{
+	color: white;
+	left: 10px;
+	position: fixed;
+	font-size: 2rem;
+}
 
 // Small devices (vertical phones, 767px and down)
 @media (max-width: 767px) { 
@@ -506,6 +510,9 @@ body {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
+	.artistBack{
+		display: none;
+	}
 	.nav{
 		display: flex;
 	}
