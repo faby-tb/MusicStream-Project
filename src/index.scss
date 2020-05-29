@@ -1,15 +1,142 @@
+/*
+*	Import de bootstrap
+*
+*/
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 
+
+/*
+*	Colores Oficiales
+*		$background -> Usar en background:
+*		$text -> Usar en color:
+*	
+*/
+$background-00: #0B132B;
+$background-01dp: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #0B132B;
+$background-02dp: linear-gradient(0deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07)), #0B132B;
+$background-03dp: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #0B132B;
+
+$background-10: #1C2541;
+
+$background-20: #3A506B;
+
+$highlight: #1691B2;
+$highlight-50: #E1F5FE;
+$highlight-100: #B5E8FB;
+$highlight-500: #2AB4E1;
+$highlight-900: #005B6C;
+
+$text-disabled: #3A506B;
+
+/*
+*	Sombras para cada profundidad
+*		Usar en box-shadow:
+*
+*	- 00dp no posee sombra ya que es la capa más profunda
+*/
+$shadow-01dp: 0px 4px 5px rgba(0, 0, 0, 0.25);
+
+/*
+*	ScrollBar
+*
+*/
+	/* width */
+	::-webkit-scrollbar {
+		width: 10px;
+  	}
+  
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: $background-01dp; 
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: $highlight-50; 
+	}
+	
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: $highlight-100; 
+	}
+
+	/* Handle on Active */
+	::-webkit-scrollbar-thumb:active {
+		background: $highlight; 
+	}
+
+
+/*
+*	Etiqueta body y fuentes
+*
+*	- Usar .titulos para modificar fuente en titutulos o textos seleccionados previamente.
+*/
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	background: $background-00;
 }
 
+.titulos{
+	font-family: 'Josefin Slab', serif;
+}
+
+.disabled{
+	color: $text-disabled;
+}
+
+/*
+*	Clase Content 
+*/
+
+.content{
+	background: $background-00;
+}
+
+/*
+*	Clase NavIzquierdo 
+*/
 .nav{
+	z-index: 1;
 	min-height: 100vh;
+	color: $highlight;
+	box-shadow: $shadow-01dp;
+	background: $background-10;
+
+	.list-group-item{
+		color: $highlight;
+		background: $background-10;
+
+		.nav-link{
+			font-size: 15px;
+			color: $highlight;	
+			&:hover{
+				color: $highlight-500;	
+			}
+		}
+		.disabled{
+			color: $text-disabled;
+		}
+	}
+	box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
 }
 
+.logo{
+	background: $background-20;
+	color: $white;
+}
+
+/*
+*	Clase Slider 
+*/
+.card{
+	background: $background-20;
+}
+
+/*
+*	Clase Slider 
+*/
 .slider{
 	position: relative;
 	width: 100%;
@@ -32,6 +159,19 @@ body {
 	}
 }
 
+.slider-arrow{
+	background: rgba(255, 255, 255, 0.342);
+	padding: 1rem;
+	border-radius: 50px;
+	transition: 0.5s;
+	&:hover{
+		background: rgba(255, 255, 255, 0.514);
+	}
+}
+
+/*
+*	Clase Header 
+*/
 .header-container{
 	position: relative;
 	width: 100%;
@@ -48,6 +188,9 @@ body {
 	overflow: hidden;
 }
 
+/*
+*	Clases para los carruseles
+*/
 %btn-styles{
 	position: absolute;
 	background: none;
@@ -100,29 +243,104 @@ body {
 	z-index: -1;
 }
 
-.slider-arrow{
-	background: rgba(255, 255, 255, 0.342);
-	padding: 1rem;
-	border-radius: 50px;
-	transition: 0.5s;
-	&:hover{
-		background: rgba(255, 255, 255, 0.514);
-	}
-}
-
-.logo{
-	background: rgba(255, 255, 255, 0.363);
-	color: white;
-}
 
 .card-title{
 	color: white;
 }
 
+.clickable{
+	cursor: pointer;
+}
+
+
+/*
+*	Clase Jumbotron
+*/
+.jumbotron{
+	background: $highlight;
+}
+
+/*
+*	Clase NotFound
+*/
 .not-found{
 	min-height: 100vh;
 }
 
-.clickable{
-	cursor: pointer;
+/*
+*	Clase Artista
+*/
+.artistCover{
+	// background: linear-gradient(to right, #183cddb6, #175977b7), url("./img/the-weeknd-blinding-lights.jpg");
+    color: #fff;
+    background-size: cover;
+	background-position: center;
+	min-height: 50vh;
+	.gradient{
+		z-index: 2;
+		background: linear-gradient(to top, $background-00, rgba(255, 255, 255, 0));
+	}
 }
+
+.artistContentHeader{
+	background: $background-00;
+	color: #fff;
+	min-height: 10vh;
+}
+.artistContent{
+	background: $background-00;
+	color: #fff;
+	min-height: 50vh;
+}
+
+/*
+*	Clase AudioPlayer
+*/
+.audioPlayer{
+	z-index: 3;
+	background: $background-10;
+	box-shadow: $shadow-01dp;
+	h6{
+		overflow: hidden;
+		color: $highlight;
+	}
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+
+	box-shadow: 0px -6px 9px rgba(0, 0, 0, 0.45);
+}
+
+#progress {
+	cursor: pointer;
+	width: 60vw;
+}
+
+#bg-bar {
+	background: $highlight-900;
+	height: 5px;
+	margin-bottom: 7px;
+	width: 100%;
+	z-index: 0;
+	border-radius: 50px;
+}
+
+#bar {
+	height: 20px;
+	transform: translateY(-20px);
+	background: $highlight-500;
+	border-radius: 50px;
+	transition: 0.5s;
+	width: 0;
+	z-index: 1;
+}
+
+.playerButton{
+	background: none;
+	border: none;
+	outline: none;
+	color: $highlight;
+	&:hover{
+		color: $highlight-500;
+	}
+}
+

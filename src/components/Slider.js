@@ -6,7 +6,7 @@ const Slider = () => {
 
         //test array DELETE
 		let slideArr = [
-			<div className="card mb-3 bg-dark mx-4">
+			<div className="card mb-3 mx-4">
 				<img src={img} className="card-img-top" alt="..."/>
 				<div className="card-body position-relative">
 					<h5 className="card-title">Card title</h5>
@@ -14,7 +14,7 @@ const Slider = () => {
 					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
 				</div>
 			</div>,
-			<div className="card mb-3 bg-dark mx-4">
+			<div className="card mb-3 mx-4">
 					<img src={img} className="card-img-top" alt="..."/>
 				<div className="card-body position-relative">
 					<h5 className="card-title">Card title</h5>
@@ -22,7 +22,7 @@ const Slider = () => {
 					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
 				</div>
 			</div>,
-			<div className="card mb-3 bg-dark mx-4">
+			<div className="card mb-3 mx-4">
 				<img src={img} className="card-img-top" alt="..."/>
 				<div className="card-body position-relative">
 					<h5 className="card-title">Card title</h5>
@@ -30,7 +30,7 @@ const Slider = () => {
 					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
 				</div>
 			</div>,
-			<div className="card mb-3 bg-dark mx-4">
+			<div className="card mb-3 mx-4">
 				<img src={img} className="card-img-top" alt="..."/>
 				<div className="card-body position-relative">
 					<h5 className="card-title">Card title</h5>
@@ -38,7 +38,7 @@ const Slider = () => {
 					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
 				</div>
 			</div>,
-			<div className="card mb-3 bg-dark mx-4">
+			<div className="card mb-3 mx-4">
 				<img src={img} className="card-img-top" alt="..."/>
 				<div className="card-body position-relative">
 					<h5 className="card-title">Card title</h5>

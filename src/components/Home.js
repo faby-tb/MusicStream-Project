@@ -1,10 +1,10 @@
 import React from 'react';
 import Content from './Content';
 
-const Home = () => {
-
+const Home = (props) => {
+    
     return(
-        <Content></Content>
+        <Content props={props}></Content>
     );
 }
 

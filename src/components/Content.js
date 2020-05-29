@@ -3,59 +3,45 @@ import React from 'react';
 import Slider from './Slider';
 import Header from './Header';
 
+// eslint-disable-next-line
+import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
+
 import TheWeeknd from '../img/the-weeknd.jpg';
 
-const Content = () => {
-
-        function closeAlert($alert){
-            let element = document.getElementById($alert);
-            element.remove("show");
-        }
-
+const Content = (props) => {
+        let artistas = props.props.props;
+        console.log(artistas);
+    
         return(
-            <div className="col-11 mt-3 mb-5 pb-5">
+            <div className="content col-xl-11 mb-5 pb-5 px-0">
                 <Header></Header>
 
-                <div className="jumbotron jumbotron-fluid bg-info">
+                <div className="jumbotron jumbotron-fluid">
                     <div className="container">
                         <h1 className="display-4">Fluid jumbotron</h1>
                         <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
                     </div>  
                 </div>
 
-                
-
-                <div className="alert alert-info text-center show" id="notificacion" role="alert">
-                    El nuevo éxito de The Weeknd ya disponible!
-                    <button type="button" className="close stretched-link" aria-label="Close" data-dismiss="alert" onClick={() => closeAlert("notificacion")}>
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
                 <div className="row container-fluid justify-content-center">
-                    <div className="card mb-3 bg-dark col-3 mx-4 pt-2 rounded-lg">
-                    <a href="/artista" className="text-decoration-none">
-                        <img src={TheWeeknd} className="card-img-top rounded-0 clickable" alt="TheWeeknd"/>
-                    </a>
-                            <div className="card-body position-relative">
-                                <a href="/artista" className="text-decoration-none stretched-link"><h4 className="card-title text-center clickable">The Weeknd</h4></a>
-                                <p className="card-text">Con algunos de sus éxitos como Blinding Lights, Call Out My Name, Starboy, The Hills, Can't Feel My Face y I Feel It Coming.​</p>
-                            </div>
-                    </div>
-                    <div className="card mb-3 bg-dark col-3 mx-4 pt-2 rounded-lg">
-                    <a href="/artista" className="text-decoration-none"><img src={TheWeeknd} className="card-img-top rounded-0 clickable" alt="TheWeeknd"/></a>
-                            <div className="card-body position-relative">
-                                <a href="/artista" className="text-decoration-none stretched-link"><h4 className="card-title text-center clickable">The Weeknd</h4></a>
-                                <p className="card-text">Con algunos de sus éxitos como Blinding Lights, Call Out My Name, Starboy, The Hills, Can't Feel My Face y I Feel It Coming.​</p>
-                            </div>
-                    </div>
-                    <div className="card mb-3 bg-dark col-3 mx-4 pt-2 rounded-lg">
-                    <a href="/artista" className="text-decoration-none"><img src={TheWeeknd} className="card-img-top rounded-0 clickable" alt="TheWeeknd"/></a>
-                            <div className="card-body position-relative">
-                                <a href="/artista" className="text-decoration-none stretched-link clickable"><h4 className="card-title text-center">The Weeknd</h4></a>
-                                <p className="card-text">Con algunos de sus éxitos como Blinding Lights, Call Out My Name, Starboy, The Hills, Can't Feel My Face y I Feel It Coming.​</p>
-                            </div>
-                    </div>
+                        {artistas.length > 0 ? (artistas.map((artista) => {
+                            // console.log(artista);
+                            return (
+                            <div key={artista.id} className="card mb-3 col-3 mx-4 pt-2 rounded-lg">
+                                <Link to={{pathname:'/artista/'+artista.id}} >
+                                    <img src={TheWeeknd} className="card-img-top rounded-0 clickable" alt="TheWeeknd"/>
+                                </Link>
+                                <div className="card-body position-relative">
+                                    <Link to={"/artista/"+artista.id} className="text-decoration-none"><h4 className="card-title text-center clickable text-capitalize titulos">{artista.nombre}</h4></Link>
+                                    <p className="card-text">{artista.descripcion}</p>
+                                </div>
+                            </div>)
+
+                            ;
+                        }) ) : (
+                            <li className="list-group-item border-0"> No hay artistas</li>)
+                        }
+                    
                 </div>
 
                 <Slider></Slider>
