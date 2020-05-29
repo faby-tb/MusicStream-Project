@@ -41,10 +41,10 @@ class NavIzquierdo extends React.Component {
 
 render = () => {
         return(
-        <ul className="nav position-fixed flex-column text-white col-sm-1 p-0">
+        <ul className="nav position-fixed flex-column text-white col-sm-1 col-md-0 p-0">
             <Link to="./../" className="text-decoration-none">
                 <li  className="list-group-item">
-                    <h4 className="logo text-center py-2 rounded-pill titulos"><i className="fas fa-music"></i>RMB</h4>
+                    <h4 className="logo text-center py-2 rounded-pill titulos"><i className="fas fa-music"></i> RMB</h4>
                 </li>
             </Link>
             <li className="list-group-item p-0">
@@ -56,9 +56,9 @@ render = () => {
                 <a className="nav-link text-decoration-none disabled" href="."><i className="fas fa-list-ul"></i> Playlist</a>
                 <a className="nav-link text-decoration-none disabled" href="."><i className="fas fa-wave-square"></i> Radio</a>
             </li>
-            <li className="list-group-item p-0">
+            <li className="list-group-item p-0 mt-auto mb-5">
                 <button id="dark-mode-toggle" className="btn nav-link dark-mode-toggle ">
-                    <p><i class="fas fa-moon"></i> Darkmode</p>
+                    <p><i className="fas fa-moon"></i> Darkmode</p>
                 </button>
             </li>
         </ul>

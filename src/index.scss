@@ -49,6 +49,7 @@
 
 	--text: black;
 	--text-disabled: rgb(107, 58, 83);
+
 }
 
 $background-00: var(--background-00);
@@ -113,7 +114,6 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Open Sans', sans-serif;
-	background: var(--background-00);
 }
 
 .titulos{
@@ -308,11 +308,29 @@ body {
 */
 .not-found{
 	min-height: 100vh;
+	background: $background-00;
+	h1,h3{
+		color: $text;
+		.highlight{
+			color: $highlight;
+		}
+	}
 }
 
 /*
 *	Clase Artista
 */
+.artist{
+	background: $background-00;
+	div{
+		.canciones{
+			background: $background-01dp;
+		}
+	}
+}
+.none{
+	display: none;
+}
 .artistCover{
 	// background: linear-gradient(to right, #183cddb6, #175977b7), url("./img/the-weeknd-blinding-lights.jpg");
     color: $text;
@@ -321,23 +339,30 @@ body {
 	min-height: 50vh;
 	.gradient{
 		z-index: 2;
-		background: linear-gradient(to top, var(--background-00), rgba(255, 255, 255, 0));
+		background: linear-gradient(to top, $background-00, rgba(255, 255, 255, 0));
 	}
 	.titulos,.genero{
 		color: white;
 	}
 }
 
+.card-img-limit{
+	height: 10vh;
+
+}
+
 .artistContentHeader{
-	background: var(--background-00);
+	background: $background-00;
 	color: $text;
 	min-height: 10vh;
 }
 .artistContent{
-	background: var(--background-00);
+	background: $background-00;
 	color: $text;
 	min-height: 50vh;
 }
+
+
 
 /*
 *	Clase AudioPlayer
@@ -385,8 +410,116 @@ body {
 	border: none;
 	outline: none;
 	color: $highlight;
+	font-size: 1rem;
 	&:hover{
 		color: $highlight-500;
 	}
 }
+// #nextButton{
+	
+// }
 
+// Small devices (vertical phones, 767px and down)
+@media (max-width: 767px) { 
+	.nav{
+		display: none;
+	}
+	#navSpace{
+		display: none;
+	}
+	.header-container{
+		height: 35vh;
+	}
+}
+
+
+
+// Medium devices (tablets, 991px and down)
+@media (max-width: 991px) { 
+	::-webkit-scrollbar {
+		width: 0;
+  	}
+	.nav{
+		display: none;
+	}
+	#navSpace{
+		display: none;
+	}
+	.header-container{
+		height: 35vh;
+	}
+	.audioPlayer{
+		height: 8vh;
+		.controls{
+			width: 25vw;
+			flex: 0 0 25%;
+			max-width: none;
+			.btn{
+				font-size: 1rem;
+			}
+		}
+		#progress{
+			padding-top: 2.5rem;
+			width: 40vw;
+			flex: 0 0 40%;
+		}
+		#audioPlayerSong{
+			width: 24vw;
+			flex: 0 0 24%;
+			max-width: none;
+		}
+		.volume-controls{
+			width: 11vw;
+			flex: 0 0 11%;
+			max-width: none;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	.artist{
+		width: 100vw;
+		flex: 0 0 100%;
+		max-width: none;
+	}
+	.not-found{
+		width: 100vw;
+		flex: 0 0 100%;
+		max-width: none;
+	}
+	.carousel-cards{
+		height: 30vh;
+		overflow: hidden;
+		.card{
+			.card-body{
+				.card-text{
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+	.nav{
+		display: flex;
+	}
+	#navSpace{
+		display: block;
+	}
+	.audioPlayer{
+		.controls{
+			width: 10vw;
+			flex: 0 0 10%;
+			max-width: none;
+		}
+		#progress{
+			padding-top: 1.5rem;
+		}
+		.volume-controls{
+			width: 6.5vw;
+			flex: 0 0 6.5%;
+			max-width: none;
+		}
+	}
+}
