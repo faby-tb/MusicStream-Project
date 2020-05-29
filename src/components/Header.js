@@ -1,20 +1,10 @@
 import React,{useState} from 'react';
-import img from '../img/placeholder_600x400.svg';
 import ImgComp from './ImgComp';
-
-const Slider = () => {
-
-        //test array DELETE
-		let slideArr = [
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>,
-			<ImgComp src={img}/>
-		];
-
+const Slider = (props) => {
+	
+	let slideArr = props.props;
+	
+	console.log(slideArr);
 		const [x,setX] = useState(0);	
 		
 		let _style = { transform: 'translateX(' + x + '%)'};
@@ -29,10 +19,10 @@ const Slider = () => {
 
         return(
 			<div className="header-container mb-3">{
-				slideArr.map((item,index)=>{
+				slideArr.map((img,index)=>{
 					return(
 						<div key={index} className="header" style={_style}>
-							{item}
+							<ImgComp src={img.img} />
 						</div>
 					);
 				})}

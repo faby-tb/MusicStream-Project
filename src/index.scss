@@ -347,7 +347,8 @@ body {
 }
 
 .card-img-limit{
-	height: 10vh;
+	height: 20vh;
+	overflow: hidden;
 
 }
 
@@ -447,6 +448,10 @@ body {
 	}
 	.header-container{
 		height: 35vh;
+	}
+	.card-img-limit{
+		height: 10vh;
+		overflow: hidden;
 	}
 	.audioPlayer{
 		height: 8vh;

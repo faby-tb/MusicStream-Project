@@ -44,7 +44,7 @@ render = () => {
         <ul className="nav position-fixed flex-column text-white col-sm-1 col-md-0 p-0">
             <Link to="./../" className="text-decoration-none">
                 <li  className="list-group-item">
-                    <h4 className="logo text-center py-2 rounded-pill titulos"><i className="fas fa-music"></i> RMB</h4>
+                    <h4 className="logo text-center py-2 rounded-pill titulos"><i className="fas fa-music"></i> MLD</h4>
                 </li>
             </Link>
             <li className="list-group-item p-0">

@@ -7,25 +7,24 @@ import Header from './Header';
 import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
 
 const Home = (props) => {
-        let artistas = props.props;
-        console.log(artistas);
+        let artistas = props.props.artistas;
         let count=0;
     
         return(
             <div className="content col-xl-11 mb-5 pb-5 px-0">
-                <Header></Header>
+                <Header props={props.props.banners}></Header>
 
                 <div className="jumbotron jumbotron-fluid">
                     <div className="container">
-                        <h1 className="display-4">Fluid jumbotron</h1>
-                        <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                        <h1 className="display-4">MLD</h1>
+                        <p className="lead">Proyecto de interactivas en proceso</p>
                     </div>  
                 </div>
 
                 <div className="carousel-cards row container-fluid justify-content-center">
-                        {(artistas.length > 0) ? (artistas.map((artista) => {
+                        {(artistas.length > 0) ? (artistas.map((artista,index) => {
                             count++;
-                            return (<div className="card mb-3 col-3 mx-4 pt-2 rounded-lg">{count < 4 ? <div key={artista.id}>
+                            return (<div key={index} className="card mb-3 col-3 mx-4 pt-2 rounded-lg">{count < 4 ? <div key={artista.id}>
                             <Link to={{pathname:'/artista/'+artista.id}} >
                                 <div className="card-img-limit"> 
                                     <img src={artista.mini} className="card-img-top rounded-0 clickable" alt="TheWeeknd"/>

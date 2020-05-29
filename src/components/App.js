@@ -9,6 +9,13 @@ import Artista from './Artista';
 import Home from './Home';
 import NotFound from './NotFound';
 
+import banner0 from '../img/indice.jpg';
+import banner1 from '../img/the-weeknd-colorful-paintart-4k-l3.jpg';
+import banner2 from '../img/2017-ariana-grande-broken-terror-attack-concert-63.jpg';
+import banner3 from '../img/twenty-one-pilots-performing-5k-5r.jpg';
+import banner4 from '../img/dua-lipa-2017-ua.jpg';
+import banner5 from '../img/ariana-grande-vogue-uk-4l.jpg';
+import banner6 from '../img/2.jpg';
 
 import img0 from '../img/the-weeknd-blinding-lights.jpg';
 import img1 from '../img/indice.jpg';
@@ -61,52 +68,61 @@ class App extends React.Component {
 			descripcion:"Ariana Grande - 7 rings, thank u, next, Rain On Me, Stuck with U y más.​",
 			bio:"Ariana Grande Butera ​ es una cantautora, actriz, productora musical y diseñadora de modas estadounidense.​ Nacida en Florida, comenzó su carrera en 2008 en el musical Trece de Broadway, antes de interpretar el papel de Cat Valentine en la serie de televisión Victorious de Nickelodeon y en la secuela, Sam & Cat."},
 			],
-			songs:[
-				{artistId:"0",
-				song: song0,
-				nombre: "Blinding Lights"},
-				{artistId:"0",
-				song: song1,
-				nombre: "Heartless"},
-				{artistId:"0",
-				song: song2,
-				nombre: "In Your Eyes"},
-				{artistId:"0",
-				song: song3,
-				nombre: "After Hours"},
-				{artistId:"0",
-				song: song4,
-				nombre: "Starboy"},
-				{artistId:"1",
-				song: song5,
-				nombre: "Level Of Concern"},
-				{artistId:"1",
-				song: song6,
-				nombre: "Stressed Out"},
-				{artistId:"1",
-				song: song7,
-				nombre: "Ride"},
-				{artistId:"1",
-				song: song8,
-				nombre: "Chlorine"},
-				{artistId:"1",
-				song: song9,
-				nombre: "The Hype"},
-				{artistId:"2",
-				song: song10,
-				nombre: "Stuck with U"},
-				{artistId:"2",
-				song: song11,
-				nombre: "Rain On Me"},
-				{artistId:"2",
-				song: song12,
-				nombre: "7 rings"},
-				{artistId:"2",
-				song: song13,
-				nombre: "thank u, next"},
-				{artistId:"2",
-				song: song14,
-				nombre: "Good as Hell"},
+		songs:[
+			{artistId:"0",
+			song: song0,
+			nombre: "Blinding Lights"},
+			{artistId:"0",
+			song: song1,
+			nombre: "Heartless"},
+			{artistId:"0",
+			song: song2,
+			nombre: "In Your Eyes"},
+			{artistId:"0",
+			song: song3,
+			nombre: "After Hours"},
+			{artistId:"0",
+			song: song4,
+			nombre: "Starboy"},
+			{artistId:"1",
+			song: song5,
+			nombre: "Level Of Concern"},
+			{artistId:"1",
+			song: song6,
+			nombre: "Stressed Out"},
+			{artistId:"1",
+			song: song7,
+			nombre: "Ride"},
+			{artistId:"1",
+			song: song8,
+			nombre: "Chlorine"},
+			{artistId:"1",
+			song: song9,
+			nombre: "The Hype"},
+			{artistId:"2",
+			song: song10,
+			nombre: "Stuck with U"},
+			{artistId:"2",
+			song: song11,
+			nombre: "Rain On Me"},
+			{artistId:"2",
+			song: song12,
+			nombre: "7 rings"},
+			{artistId:"2",
+			song: song13,
+			nombre: "thank u, next"},
+			{artistId:"2",
+			song: song14,
+			nombre: "Good as Hell"},
+			],
+			banners:[
+			{img: banner0},
+			{img: banner1},
+			{img: banner2},
+			{img: banner3},
+			{img: banner4},
+			{img: banner5},
+			{img: banner6},
 			]
 	};
 
@@ -121,7 +137,7 @@ class App extends React.Component {
 						<div id="navSpace" className="col-sm-1"></div>
 						<Switch>
 							<Route exact path="/">
-								<Home props={this.state.artistas}></Home>
+								<Home props={this.state}></Home>
 							</Route>
 							<Route path="/artista/:id">
 								<Artista component={this.state}></Artista>
