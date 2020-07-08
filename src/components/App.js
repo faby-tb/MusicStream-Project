@@ -59,30 +59,32 @@ class App extends React.Component {
 				console.error(crasheo);
 			});
 	};
+	
 	state = {
-		artistas: [
-			{nombre:"the weeknd",
-			id:"0",
-			img: img0,
-			mini: mini0,
-			genero:"R&B Alternativo",
-			descripcion:"Blinding Lights, Starboy, False Alarm, After Hours y más.",
-			bio:"Abel Makkonen Tesfaye (born February 16, 1990), known professionally as The Weeknd, is a Canadian singer, songwriter, and record producer. He began his recording career in 2010, anonymously uploading several songs to YouTube. A year later, The Weeknd released the mixtapes House of Balloons, Thursday, and Echoes of Silence, and quickly earned a following and critical recognition from several mainstream publications due to his dark style of R&B and the mystique surrounding his identity."},
-			{nombre:"Twenty One Pilots",
-			id:"1",
-			img: img1,
-			mini: mini1,
-			genero:"Pop Rock",
-			descripcion:"Level Of Concern, Stressed Out, Ride, Chlorine y más.",
-			bio:"Twenty One Pilots es un dúo musical estadounidense de Columbus, Ohio. La banda se formó en 2009 por el vocalista Tyler Joseph junto con Nick Thomas y Chris Salih, quienes se fueron en 2011. Desde su partida, la formación ha consistido en Joseph y el baterista Josh Dun."},
-			{nombre:"Ariana Grande",
-			id:"2",
-			img: img2,
-			mini: mini2,
-			genero:"R&B",
-			descripcion:"Ariana Grande - 7 rings, thank u, next, Rain On Me, Stuck with U y más.​",
-			bio:"Ariana Grande Butera ​ es una cantautora, actriz, productora musical y diseñadora de modas estadounidense.​ Nacida en Florida, comenzó su carrera en 2008 en el musical Trece de Broadway, antes de interpretar el papel de Cat Valentine en la serie de televisión Victorious de Nickelodeon y en la secuela, Sam & Cat."},
-			],
+		artistas: [],
+		// artistas: [
+		// 	{nombre:"the weeknd",
+		// 	id:"0",
+		// 	img: img0,
+		// 	mini: mini0,
+		// 	genero:"R&B Alternativo",
+		// 	descripcion:"Blinding Lights, Starboy, False Alarm, After Hours y más.",
+		// 	bio:"Abel Makkonen Tesfaye (born February 16, 1990), known professionally as The Weeknd, is a Canadian singer, songwriter, and record producer. He began his recording career in 2010, anonymously uploading several songs to YouTube. A year later, The Weeknd released the mixtapes House of Balloons, Thursday, and Echoes of Silence, and quickly earned a following and critical recognition from several mainstream publications due to his dark style of R&B and the mystique surrounding his identity."},
+		// 	{nombre:"Twenty One Pilots",
+		// 	id:"1",
+		// 	img: img1,
+		// 	mini: mini1,
+		// 	genero:"Pop Rock",
+		// 	descripcion:"Level Of Concern, Stressed Out, Ride, Chlorine y más.",
+		// 	bio:"Twenty One Pilots es un dúo musical estadounidense de Columbus, Ohio. La banda se formó en 2009 por el vocalista Tyler Joseph junto con Nick Thomas y Chris Salih, quienes se fueron en 2011. Desde su partida, la formación ha consistido en Joseph y el baterista Josh Dun."},
+		// 	{nombre:"Ariana Grande",
+		// 	id:"2",
+		// 	img: img2,
+		// 	mini: mini2,
+		// 	genero:"R&B",
+		// 	descripcion:"Ariana Grande - 7 rings, thank u, next, Rain On Me, Stuck with U y más.​",
+		// 	bio:"Ariana Grande Butera ​ es una cantautora, actriz, productora musical y diseñadora de modas estadounidense.​ Nacida en Florida, comenzó su carrera en 2008 en el musical Trece de Broadway, antes de interpretar el papel de Cat Valentine en la serie de televisión Victorious de Nickelodeon y en la secuela, Sam & Cat."},
+		// 	],
 		songs:[
 			{artistId:"0",
 			song: song0,
@@ -141,9 +143,28 @@ class App extends React.Component {
 			]
 	};
 
+	requestArtistas = () =>{
+		let url ='http://app.test/api/topThree';
+			
+		axios
+			.get(url)
+			.then((res)=>{
+				console.log(res);
+				this.setState({
+					artistas: res.data.reponse.artistas,
+				});
+			})
+			.catch((crasheo)=>{
+				console.error(crasheo);
+			});
+	};
+
+	componentDidMount = () => {
+		this.requestArtistas();
+	};
 
 	render() {
-		this.requestSaludo();
+		// this.requestArtistas();
 		return (
 			<Router>
 				<div className="text-white main">
