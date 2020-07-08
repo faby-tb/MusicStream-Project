@@ -44,6 +44,20 @@ import song13 from '../music/Ariana Grande - thank u, next.mp3';
 import song14 from '../music/Ariana Grande - Good As Hell (Remix).mp3';
 
 class App extends React.Component {
+
+	requestSaludo = () =>{
+		let url ='http://app.test/api/hola';
+
+
+		axios
+			.get(url)
+			.then((res)=>{
+				console.log(res);
+			})
+			.catch((crasheo)=>{
+				console.error(crasheo);
+			});
+	};
 	state = {
 		artistas: [
 			{nombre:"the weeknd",
