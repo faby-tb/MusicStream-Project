@@ -3,6 +3,8 @@ import React from 'react';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
+import axios from 'axios';
+
 import NavIzquierdo from './NavIzquierdo';
 import AudioPlayer from './AudioPlayer';
 import Artista from './Artista';
@@ -47,8 +49,7 @@ class App extends React.Component {
 
 	requestSaludo = () =>{
 		let url ='http://app.test/api/hola';
-
-
+			
 		axios
 			.get(url)
 			.then((res)=>{
@@ -142,7 +143,7 @@ class App extends React.Component {
 
 
 	render() {
-
+		this.requestSaludo();
 		return (
 			<Router>
 				<div className="text-white main">
