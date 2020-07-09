@@ -4,6 +4,7 @@ const Slider = (props) => {
 	
 	let slideArr = props.props;
 	
+		
 	// console.log(slideArr);
 		const [x,setX] = useState(0);	
 		

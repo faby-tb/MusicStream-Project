@@ -53,14 +53,16 @@ class App extends React.Component {
 		axios
 			.get(url)
 			.then((res)=>{
-				console.log(res);
+				// console.log(res);
 			})
 			.catch((crasheo)=>{
 				console.error(crasheo);
 			});
 	};
-	
 	state = {
+		baseUrl:[
+			{url:'http://app.test/'}
+		],
 		artistas: [],
 		// artistas: [
 		// 	{nombre:"the weeknd",
@@ -86,10 +88,10 @@ class App extends React.Component {
 		// 	bio:"Ariana Grande Butera ​ es una cantautora, actriz, productora musical y diseñadora de modas estadounidense.​ Nacida en Florida, comenzó su carrera en 2008 en el musical Trece de Broadway, antes de interpretar el papel de Cat Valentine en la serie de televisión Victorious de Nickelodeon y en la secuela, Sam & Cat."},
 		// 	],
 		songs:[
-			{artistId:"0",
+			{artistId:"17",
 			song: song0,
 			nombre: "Blinding Lights"},
-			{artistId:"0",
+			{artistId:"17",
 			song: song1,
 			nombre: "Heartless"},
 			{artistId:"0",
@@ -132,15 +134,7 @@ class App extends React.Component {
 			song: song14,
 			nombre: "Good as Hell"},
 			],
-			banners:[
-			{img: banner0},
-			{img: banner1},
-			{img: banner2},
-			{img: banner3},
-			{img: banner4},
-			{img: banner5},
-			{img: banner6},
-			]
+			banners:[]
 	};
 
 	requestArtistas = () =>{
@@ -149,7 +143,6 @@ class App extends React.Component {
 		axios
 			.get(url)
 			.then((res)=>{
-				console.log(res);
 				this.setState({
 					artistas: res.data.reponse.artistas,
 				});
@@ -158,13 +151,31 @@ class App extends React.Component {
 				console.error(crasheo);
 			});
 	};
+	requestBanners = () =>{
+		let url ='http://app.test/api/topSix';
+		let imagenes=[];
+		axios
+			.get(url)
+			.then((res)=>{
+
+				res.data.reponse.imagenes.forEach(function(imagen){
+					imagenes.push({img:'http://app.test/'+imagen.filename});
+				});
+				this.setState({
+					banners: imagenes,
+				});
+			})
+			.catch((crasheo)=>{
+				console.error(crasheo);
+			});
+	};
 
 	componentDidMount = () => {
+		this.requestBanners();
 		this.requestArtistas();
 	};
 
 	render() {
-		// this.requestArtistas();
 		return (
 			<Router>
 				<div className="text-white main">

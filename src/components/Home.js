@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
 const Home = (props) => {
         let artistas = props.props.artistas;
         let count=0;
+        let baseUrl=props.props.baseUrl[0].url;
         
         return(
             <div className="content col-xl-11 mb-5 pb-5 px-0">
@@ -24,18 +25,19 @@ const Home = (props) => {
                 <div className="carousel-cards row container-fluid justify-content-center">
                         {(artistas.length > 0) ? (artistas.map((artista,index) => {
 
-                            console.log(artista.photos[0].filename);
+                            // console.log(baseUrl+artista.photos[0].filename);
                             count++;
 
                             return (<div key={index} className="card mb-3 col-3 mx-4 pt-2 rounded-lg">{count < 4 ? <div key={artista.id}>
                             <Link to={{pathname:'/artista/'+artista.id}} >
                                 <div className="card-img-limit"> 
-                                    <img src={artista.photos[0].filename} className="card-img-top rounded-0 clickable" alt={artista.nombre}/>
+                                    <img src={baseUrl+artista.photos[0].filename} className="card-img-top rounded-0 clickable" alt={artista.nombre}/>
                                 </div>
                             </Link>
                             <div className="card-body position-relative">
                                 <Link to={"/artista/"+artista.id} className="text-decoration-none stretched-link"><h4 className="card-title text-center clickable text-capitalize titulos">{artista.nombre}</h4></Link>
-                                <p className="card-text">{artista.descripcion}</p>
+                                <p className="card-text text-center">{artista.descripcion}</p>
+                                <p className="text-muted text-center">Clic para ver más</p>
                             </div>
                         </div> : ''}
                             

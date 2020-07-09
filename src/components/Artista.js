@@ -13,14 +13,25 @@ const Artista = (props) => {
     }
     
     let { id } = useParams();
+    let artist;
+    let baseUrl=props.component.baseUrl[0].url;
+    let artistas = props.component.artistas;
     
-    let artist = props.component.artistas[id];
+    function encontrarArtista(){ 
+        artistas.forEach(function(artista){
+            if(artista.id+"" === id+""){
+                console.log(artista);
+                artist = artista;
+            }
+        });
+    }
     let songs = props.component.songs;
+    encontrarArtista();
     
-    // console.log(artist);
+    console.log(props.component);
     
     let styleImg = {
-        'background': 'url("'+artist.img+'")',
+        'background': 'url("'+baseUrl+artist.photos[0].filename+'")',
         'backgroundSize': 'cover',
         'backgroundPosition':'center'
     };
@@ -41,7 +52,8 @@ const Artista = (props) => {
             <div>
                 {songs.length > 0 ? (songs.map((song,index) => {
                     return(
-                        <button key={index} className={song.artistId === artist.id ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId === artist.id ? song : "")}>{song.artistId === artist.id ? song.nombre : ""}</button>
+                        
+                        <button key={index} className={song.artistId === artist.id+"" ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId === artist.id+"" ? song : "")}>{song.artistId === artist.id+"" ? song.nombre : ""}</button>
                         
                     )
                 }) ) : (
@@ -53,7 +65,7 @@ const Artista = (props) => {
             </div>
             <div className="container artistContent">
             <p>
-                {artist.bio}
+                {artist.descripcion}
             </p>
             
             
