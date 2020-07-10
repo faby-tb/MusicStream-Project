@@ -7,9 +7,10 @@ import Header from './Header';
 import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
 
 const Home = (props) => {
-        let artistas = props.props.artistas;
+        let artistas = props.props.topThree;
         let count=0;
         let baseUrl=props.props.baseUrl[0].url;
+
         
         return(
             <div className="content col-xl-11 mb-5 pb-5 px-0">
@@ -27,6 +28,11 @@ const Home = (props) => {
 
                             // console.log(baseUrl+artista.photos[0].filename);
                             count++;
+
+                            if(count>3){
+                                return '';
+                            }
+                            artista.photos.sort(() => Math.random() - 0.5);
 
                             return (<div key={index} className="card mb-3 col-3 mx-4 pt-2 rounded-lg">{count < 4 ? <div key={artista.id}>
                             <Link to={{pathname:'/artista/'+artista.id}} >
@@ -49,11 +55,11 @@ const Home = (props) => {
                         }
                 </div>
 
-                <Slider></Slider>
+                <Slider props={props.props.carousel}></Slider>
 
-                <h3 className="text-center">Example Video</h3>
+                <h3 className="text-center black">MLD Video</h3>
                 <div className="container embed-responsive embed-responsive-16by9">
-                    <iframe title="ExampleVideo" className="embed-responsive-item" src="https://www.youtube.com/embed/CW5oGRx9CLM"></iframe>
+                    <iframe title="ExampleVideo" className="embed-responsive-item" src="https://www.youtube.com/embed/eyCiR141LFU"></iframe>
                 </div>
             </div>
         );

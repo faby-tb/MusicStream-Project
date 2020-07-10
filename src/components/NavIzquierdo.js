@@ -57,9 +57,8 @@ render = () => {
                 </Link>
             </li>
             <li className="list-group-item p-0">
-                <a className="nav-link text-decoration-none disabled" href="."><i className="fas fa-chart-line"></i> Top Trending</a>
+                <Link className="nav-link text-decoration-none" to="/top"><i className="fas fa-chart-line"></i> Top Trending</Link>
                 <a className="nav-link text-decoration-none disabled" href="."><i className="fas fa-list-ul"></i> Playlist</a>
-                <a className="nav-link text-decoration-none disabled" href="."><i className="fas fa-wave-square"></i> Radio</a>
             </li>
             <li className="list-group-item p-0 mt-auto mb-5">
                 <button id="dark-mode-toggle" className="btn nav-link dark-mode-toggle ">

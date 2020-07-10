@@ -20,15 +20,16 @@ const Artista = (props) => {
     function encontrarArtista(){ 
         artistas.forEach(function(artista){
             if(artista.id+"" === id+""){
-                console.log(artista);
+                // console.log(artista);
                 artist = artista;
+                // console.log(artist.photos[0].filename);
             }
         });
     }
     let songs = props.component.songs;
     encontrarArtista();
+    artist.photos.sort(() => Math.random() - 0.5);
     
-    console.log(props.component);
     
     let styleImg = {
         'background': 'url("'+baseUrl+artist.photos[0].filename+'")',
@@ -46,20 +47,7 @@ const Artista = (props) => {
                     <p className="px-5 genero">{artist.genero}</p>
                     <div className="gradient container-fluid py-4"></div>
             </div>
-            <div className="container-fluid artistContentHeader">
-                <h4 className="pt-4 titulos">Canciones</h4>
-            </div>
-            <div>
-                {songs.length > 0 ? (songs.map((song,index) => {
-                    return(
-                        
-                        <button key={index} className={song.artistId === artist.id+"" ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId === artist.id+"" ? song : "")}>{song.artistId === artist.id+"" ? song.nombre : ""}</button>
-                        
-                    )
-                }) ) : (
-                    <div></div>)
-                }
-            </div>
+            
             <div className="container-fluid artistContentHeader">
                 <h4 className="pt-4 titulos">Informacion General</h4>
             </div>
@@ -68,7 +56,22 @@ const Artista = (props) => {
                 {artist.descripcion}
             </p>
             
-            
+            </div>
+            <div className="container-fluid artistContentHeader">
+                <h4 className="pt-4 titulos">Canciones</h4>
+            </div>
+            <div className="half-page">
+                {songs.length > 0 ? (songs.map((song,index) => {
+                    console.log(song.artistId);
+                    console.log(artist.id);
+                    return(
+                        
+                        <button key={index} className={song.artistId+"" === artist.id+"" ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId+"" === artist.id+"" ? song : "")}>{song.artistId+"" === artist.id+"" ? song.nombre : ""}</button>
+                        
+                    )
+                }) ) : (
+                    <div></div>)
+                }
             </div>
             <div className="col-1 my-auto">
             </div>

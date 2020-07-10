@@ -9,41 +9,8 @@ import NavIzquierdo from './NavIzquierdo';
 import AudioPlayer from './AudioPlayer';
 import Artista from './Artista';
 import Home from './Home';
+import Top from './Top';
 import NotFound from './NotFound';
-
-import banner0 from '../img/indice.jpg';
-import banner1 from '../img/the-weeknd-colorful-paintart-4k-l3.jpg';
-import banner2 from '../img/2017-ariana-grande-broken-terror-attack-concert-63.jpg';
-import banner3 from '../img/twenty-one-pilots-performing-5k-5r.jpg';
-import banner4 from '../img/dua-lipa-2017-ua.jpg';
-import banner5 from '../img/ariana-grande-vogue-uk-4l.jpg';
-import banner6 from '../img/2.jpg';
-
-import img0 from '../img/the-weeknd-blinding-lights.jpg';
-import img1 from '../img/indice.jpg';
-import img2 from '../img/ariana-grande-2018-4k-5k-9f.jpg';
-
-import mini0 from '../img/the-weeknd.jpg';
-import mini1 from '../img/wallpaperflare.com_wallpaper.jpg';
-import mini2 from '../img/ariana-grande-2018-4k-5k-9f.jpg';
-
-import song0 from '../music/The Weeknd - Blinding Lights.mp3';
-import song1 from '../music/The Weeknd - Heartless.mp3';
-import song2 from '../music/The Weeknd - In Your Eyes.mp3';
-import song3 from '../music/The Weeknd - After Hours.mp3';
-import song4 from '../music/The Weeknd - Starboy.mp3';
-
-import song5 from '../music/Twenty One Pilots - Level Of Concern.mp3';
-import song6 from '../music/Twenty One Pilots - Stressed Out.mp3';
-import song7 from '../music/Twenty One Pilots - Ride.mp3';
-import song8 from '../music/Twenty One Pilots - Chlorine.mp3';
-import song9 from '../music/Twenty One Pilots - The Hype.mp3';
-
-import song10 from '../music/Ariana Grande - Stuck with U (with Justin Bieber).mp3';
-import song11 from '../music/Ariana Grande - Rain On Me.mp3';
-import song12 from '../music/Ariana Grande - 7 rings.mp3';
-import song13 from '../music/Ariana Grande - thank u, next.mp3';
-import song14 from '../music/Ariana Grande - Good As Hell (Remix).mp3';
 
 class App extends React.Component {
 
@@ -64,85 +31,19 @@ class App extends React.Component {
 			{url:'http://app.test/'}
 		],
 		artistas: [],
-		// artistas: [
-		// 	{nombre:"the weeknd",
-		// 	id:"0",
-		// 	img: img0,
-		// 	mini: mini0,
-		// 	genero:"R&B Alternativo",
-		// 	descripcion:"Blinding Lights, Starboy, False Alarm, After Hours y más.",
-		// 	bio:"Abel Makkonen Tesfaye (born February 16, 1990), known professionally as The Weeknd, is a Canadian singer, songwriter, and record producer. He began his recording career in 2010, anonymously uploading several songs to YouTube. A year later, The Weeknd released the mixtapes House of Balloons, Thursday, and Echoes of Silence, and quickly earned a following and critical recognition from several mainstream publications due to his dark style of R&B and the mystique surrounding his identity."},
-		// 	{nombre:"Twenty One Pilots",
-		// 	id:"1",
-		// 	img: img1,
-		// 	mini: mini1,
-		// 	genero:"Pop Rock",
-		// 	descripcion:"Level Of Concern, Stressed Out, Ride, Chlorine y más.",
-		// 	bio:"Twenty One Pilots es un dúo musical estadounidense de Columbus, Ohio. La banda se formó en 2009 por el vocalista Tyler Joseph junto con Nick Thomas y Chris Salih, quienes se fueron en 2011. Desde su partida, la formación ha consistido en Joseph y el baterista Josh Dun."},
-		// 	{nombre:"Ariana Grande",
-		// 	id:"2",
-		// 	img: img2,
-		// 	mini: mini2,
-		// 	genero:"R&B",
-		// 	descripcion:"Ariana Grande - 7 rings, thank u, next, Rain On Me, Stuck with U y más.​",
-		// 	bio:"Ariana Grande Butera ​ es una cantautora, actriz, productora musical y diseñadora de modas estadounidense.​ Nacida en Florida, comenzó su carrera en 2008 en el musical Trece de Broadway, antes de interpretar el papel de Cat Valentine en la serie de televisión Victorious de Nickelodeon y en la secuela, Sam & Cat."},
-		// 	],
-		songs:[
-			{artistId:"17",
-			song: song0,
-			nombre: "Blinding Lights"},
-			{artistId:"17",
-			song: song1,
-			nombre: "Heartless"},
-			{artistId:"0",
-			song: song2,
-			nombre: "In Your Eyes"},
-			{artistId:"0",
-			song: song3,
-			nombre: "After Hours"},
-			{artistId:"0",
-			song: song4,
-			nombre: "Starboy"},
-			{artistId:"1",
-			song: song5,
-			nombre: "Level Of Concern"},
-			{artistId:"1",
-			song: song6,
-			nombre: "Stressed Out"},
-			{artistId:"1",
-			song: song7,
-			nombre: "Ride"},
-			{artistId:"1",
-			song: song8,
-			nombre: "Chlorine"},
-			{artistId:"1",
-			song: song9,
-			nombre: "The Hype"},
-			{artistId:"2",
-			song: song10,
-			nombre: "Stuck with U"},
-			{artistId:"2",
-			song: song11,
-			nombre: "Rain On Me"},
-			{artistId:"2",
-			song: song12,
-			nombre: "7 rings"},
-			{artistId:"2",
-			song: song13,
-			nombre: "thank u, next"},
-			{artistId:"2",
-			song: song14,
-			nombre: "Good as Hell"},
-			],
-			banners:[]
+		topThree: [],
+		carousel:[],
+		songs:[],
+		banners:[]
 	};
 
 	requestArtistas = () =>{
-		let url ='http://app.test/api/topThree';
+		let url ='http://app.test/api/artist';
 			
 		axios
 			.get(url)
 			.then((res)=>{
+				// console.log(res);
 				this.setState({
 					artistas: res.data.reponse.artistas,
 				});
@@ -151,13 +52,44 @@ class App extends React.Component {
 				console.error(crasheo);
 			});
 	};
+	requestTopThree = () =>{
+		let url ='http://app.test/api/topThree';
+			
+		axios
+			.get(url)
+			.then((res)=>{
+				// console.log(res.data.reponse.artistas);
+				this.setState({
+					topThree: res.data.reponse.artistas,
+				});
+			})
+			.catch((crasheo)=>{
+				console.error(crasheo);
+			});
+	};
+	requestCarousel = () =>{
+		let url ='http://app.test/api/carousel';
+			
+		axios
+			.get(url)
+			.then((res)=>{
+				// console.log(res.data.reponse.artistas);
+				this.setState({
+					carousel: res.data.reponse.artistas,
+				});
+			})
+			.catch((crasheo)=>{
+				console.error(crasheo);
+			});
+	};
+	
 	requestBanners = () =>{
 		let url ='http://app.test/api/topSix';
 		let imagenes=[];
 		axios
 			.get(url)
 			.then((res)=>{
-
+				res.data.reponse.imagenes.sort(() => Math.random() - 0.5);
 				res.data.reponse.imagenes.forEach(function(imagen){
 					imagenes.push({img:'http://app.test/'+imagen.filename});
 				});
@@ -169,10 +101,33 @@ class App extends React.Component {
 				console.error(crasheo);
 			});
 	};
+	requestCanciones = () =>{
+		let url ='http://app.test/api/songs';
+		let canciones=[];
+		axios
+			.get(url)
+			.then((res)=>{
+				res.data.reponse.canciones.forEach(function(cancion){
+					canciones.push({
+						artistId:cancion.songable.id,
+						song:'http://app.test/'+cancion.filename,
+						nombre:cancion.name});
+				});
+				this.setState({
+					songs: canciones,
+				});
+			})
+			.catch((crasheo)=>{
+				console.error(crasheo);
+			});
+	};
 
 	componentDidMount = () => {
 		this.requestBanners();
 		this.requestArtistas();
+		this.requestCanciones();
+		this.requestCarousel();
+		this.requestTopThree();
 	};
 
 	render() {
@@ -188,6 +143,9 @@ class App extends React.Component {
 							</Route>
 							<Route path="/artista/:id">
 								<Artista component={this.state}></Artista>
+							</Route>
+							<Route path="/top">
+								<Top props={this.state}></Top>
 							</Route>
 							<Route path="*">
 								<NotFound/>

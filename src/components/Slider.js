@@ -1,72 +1,41 @@
 import React,{useState} from 'react';
 
-import img from '../img/placeholder_600x400.svg';
+// eslint-disable-next-line
+import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
 
-const Slider = () => {
-
-        //test array DELETE
-		let slideArr = [
-			<div className="card mb-3 mx-4">
-				<img src={img} className="card-img-top" alt="..."/>
-				<div className="card-body position-relative">
-					<h5 className="card-title">Card title</h5>
-					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-				</div>
-			</div>,
-			<div className="card mb-3 mx-4">
-					<img src={img} className="card-img-top" alt="..."/>
-				<div className="card-body position-relative">
-					<h5 className="card-title">Card title</h5>
-					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-				</div>
-			</div>,
-			<div className="card mb-3 mx-4">
-				<img src={img} className="card-img-top" alt="..."/>
-				<div className="card-body position-relative">
-					<h5 className="card-title">Card title</h5>
-					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-				</div>
-			</div>,
-			<div className="card mb-3 mx-4">
-				<img src={img} className="card-img-top" alt="..."/>
-				<div className="card-body position-relative">
-					<h5 className="card-title">Card title</h5>
-					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-				</div>
-			</div>,
-			<div className="card mb-3 mx-4">
-				<img src={img} className="card-img-top" alt="..."/>
-				<div className="card-body position-relative">
-					<h5 className="card-title">Card title</h5>
-					<p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-				</div>
-			</div>
-
-		];
+const Slider = (props) => {
+	let cards = props.props;
+	// console.log(cards);
 
 		const [x,setX] = useState(0);	
 		
-		let _style = { transform: 'translateX(' + x + '%)'};
+		let _style = {	transform: 'translateX(' + x + '%)',
+						transition: '0.2s'};
 
 		const goLeft=()=>{
-			(x === 0) ? setX(-101*(slideArr.length-3)) : setX(x+101);
+			(x === 0) ? setX(-110*(cards.length-4)) : setX(x+110);
 		};
 
 		const goRight=()=>{
-			(x === -101*(slideArr.length-3)) ? setX(0) : setX(x-101);
+			(x === -110*(cards.length-4)) ? setX(0) : setX(x-110);
 		};
-
+		let style = {
+			'objectFit':'cover'
+		};
+		
         return(
 			<div className="slider">{
-				slideArr.map((item,index)=>{
+				cards.map((card,index)=>{
+					card.photos.sort(() => Math.random() - 0.5);
 					return(
-						<div key={index} className="slide" style={_style}>
-							{item}
+						<div key={index} className="card mb-3 mx-4 embed-responsive embed-responsive-16by9 carousel-card" style={_style}>
+							<img src={"http://app.test/"+card.photos[0].filename} className="card-img-top embed-responsive-item" style={style} alt="..."/>
+							<div className="card-body position-relative">
+								<h5 className="card-title white">{card.nombre}</h5>
+								<p className="card-text white">{card.descripcion}</p>
+								<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+							</div>
+								<Link to={"/artista/"+card.id} className="text-decoration-none stretched-link"><h4 className="card-title text-center clickable text-capitalize titulos"> </h4></Link>
 						</div>
 					);
 				})}

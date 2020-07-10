@@ -364,7 +364,21 @@ body {
 .artistContent{
 	background: $background-00;
 	color: $text;
+}
+.half-page{
 	min-height: 50vh;
+}
+
+.carousel-card{
+	min-width: 20vw;
+	width: 20vw;
+}
+
+.white{
+	color: $white !important;
+}
+.black{
+	color: $highlight;
 }
 
 
