@@ -5,7 +5,7 @@ import song from '../music/The Weeknd - Starboy.mp3';
 
 class AudioPlayer extends React.Component {
     handleChangeSong = (e) =>{
-        console.log(e);
+        // console.log(e);
         document.getElementById('audioPlayerSong').src= song;
     }
 

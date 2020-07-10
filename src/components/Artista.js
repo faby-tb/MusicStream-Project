@@ -6,10 +6,10 @@ import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
 
 const Artista = (props) => {
     function changeSong(e){
-        // console.log(e.nombre);
         document.getElementById('player').src = props.component.songs[0].song;
         document.getElementById('player').src = e.song;
         document.getElementById('audioPlayerSongTitle').innerText = e.nombre;
+        
     }
     
     let { id } = useParams();
@@ -20,9 +20,7 @@ const Artista = (props) => {
     function encontrarArtista(){ 
         artistas.forEach(function(artista){
             if(artista.id+"" === id+""){
-                // console.log(artista);
                 artist = artista;
-                // console.log(artist.photos[0].filename);
             }
         });
     }
@@ -61,17 +59,19 @@ const Artista = (props) => {
                 <h4 className="pt-4 titulos">Canciones</h4>
             </div>
             <div className="half-page">
+                <ul class="list-group list-group-flush">
                 {songs.length > 0 ? (songs.map((song,index) => {
                     console.log(song.artistId);
                     console.log(artist.id);
                     return(
-                        
-                        <button key={index} className={song.artistId+"" === artist.id+"" ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId+"" === artist.id+"" ? song : "")}>{song.artistId+"" === artist.id+"" ? song.nombre : ""}</button>
-                        
+                        <li class="list-group-item bg-transparent">
+                            <button key={index} className={song.artistId+"" === artist.id+"" ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId+"" === artist.id+"" ? song : "")}>{song.artistId+"" === artist.id+"" ? song.nombre : ""}</button>
+                        </li>
                     )
                 }) ) : (
                     <div></div>)
                 }
+                </ul>
             </div>
             <div className="col-1 my-auto">
             </div>

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
 const Slider = (props) => {
 	let cards = props.props;
 	// console.log(cards);
-
+		
 		const [x,setX] = useState(0);	
 		
 		let _style = {	transform: 'translateX(' + x + '%)',
@@ -26,14 +26,14 @@ const Slider = (props) => {
         return(
 			<div className="slider">{
 				cards.map((card,index)=>{
-					card.photos.sort(() => Math.random() - 0.5);
+					
 					return(
 						<div key={index} className="card mb-3 mx-4 embed-responsive embed-responsive-16by9 carousel-card" style={_style}>
 							<img src={"http://app.test/"+card.photos[0].filename} className="card-img-top embed-responsive-item" style={style} alt="..."/>
 							<div className="card-body position-relative">
 								<h5 className="card-title white">{card.nombre}</h5>
 								<p className="card-text white">{card.descripcion}</p>
-								<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+								<p className="card-text"><small className="text-muted">Clic para ver más</small></p>
 							</div>
 								<Link to={"/artista/"+card.id} className="text-decoration-none stretched-link"><h4 className="card-title text-center clickable text-capitalize titulos"> </h4></Link>
 						</div>

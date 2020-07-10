@@ -43,7 +43,6 @@ class App extends React.Component {
 		axios
 			.get(url)
 			.then((res)=>{
-				// console.log(res);
 				this.setState({
 					artistas: res.data.reponse.artistas,
 				});
@@ -73,7 +72,10 @@ class App extends React.Component {
 		axios
 			.get(url)
 			.then((res)=>{
-				// console.log(res.data.reponse.artistas);
+				let a = res.data.reponse.artistas;
+				a.forEach(artist => {
+					artist.photos.sort(() => Math.random() - 0.5);
+				});
 				this.setState({
 					carousel: res.data.reponse.artistas,
 				});
