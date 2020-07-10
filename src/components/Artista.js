@@ -64,8 +64,8 @@ const Artista = (props) => {
                     console.log(song.artistId);
                     console.log(artist.id);
                     return(
-                        <li class="list-group-item bg-transparent">
-                            <button key={index} className={song.artistId+"" === artist.id+"" ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId+"" === artist.id+"" ? song : "")}>{song.artistId+"" === artist.id+"" ? song.nombre : ""}</button>
+                        <li className={song.artistId+"" === artist.id+"" ? 'list-group-item bg-transparent' : 'none'} key={index}>
+                            <button className={song.artistId+"" === artist.id+"" ? 'btn playerButton canciones mx-1' : 'none'}  onClick={() => changeSong(song.artistId+"" === artist.id+"" ? song : "")}>{song.artistId+"" === artist.id+"" ? song.nombre : ""}</button>
                         </li>
                     )
                 }) ) : (
